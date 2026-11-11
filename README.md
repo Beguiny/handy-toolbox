@@ -17,6 +17,7 @@ used in the craft and put back into the box when you close the crafting screen.
 - Accepts GregTech CEu tools (including unbreakable ones) and any other single-stack tool with durability
   or a `forge:tools/...` tag.
 - Tools keep their durability, enchantments and NBT. The server validates every move.
+- ProjectE's Repair Talisman also repairs the tools stored in toolboxes.
 
 ## For modpack makers
 

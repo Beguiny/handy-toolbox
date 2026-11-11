@@ -1,5 +1,7 @@
 package com.minecraft.handytoolbox;
 
+import java.util.function.Predicate;
+
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
@@ -65,6 +67,41 @@ public final class ToolboxData {
 
     public static void save(ItemStack box, NonNullList<ItemStack> items) {
         ContainerHelper.saveAllItems(box.getOrCreateTag(), items, true);
+    }
+
+    /**
+     * Repairs 1 durability on every tool in the toolbox that {@code canRepair} accepts (used by repair items from
+     * other mods). Goes through the open screen if the toolbox is open. Returns whether anything was repaired.
+     */
+    public static boolean repairContents(ItemStack box, Predicate<ItemStack> canRepair) {
+        ToolboxContainer open = ToolboxContainer.openFor(box);
+        if (open != null) {
+            boolean repaired = false;
+            for (int i = 0; i < open.getContainerSize(); i++) {
+                repaired |= repairOne(open.getItem(i), canRepair);
+            }
+            if (repaired) {
+                open.setChanged();
+            }
+            return repaired;
+        }
+        NonNullList<ItemStack> items = load(box);
+        boolean repaired = false;
+        for (ItemStack tool : items) {
+            repaired |= repairOne(tool, canRepair);
+        }
+        if (repaired) {
+            save(box, items);
+        }
+        return repaired;
+    }
+
+    private static boolean repairOne(ItemStack tool, Predicate<ItemStack> canRepair) {
+        if (tool.isEmpty() || !canRepair.test(tool)) {
+            return false;
+        }
+        tool.setDamageValue(tool.getDamageValue() - 1);
+        return true;
     }
 
     public static int count(ItemStack box) {

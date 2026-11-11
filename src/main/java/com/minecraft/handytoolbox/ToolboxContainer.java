@@ -1,5 +1,8 @@
 package com.minecraft.handytoolbox;
 
+import java.util.Collections;
+import java.util.Map;
+import java.util.WeakHashMap;
 import java.util.function.Supplier;
 
 import net.minecraft.core.NonNullList;
@@ -10,12 +13,25 @@ import net.minecraft.world.item.ItemStack;
 
 /** Contents of an open toolbox; every change is written back to the item's NBT. */
 public class ToolboxContainer implements Container {
+    /** Open toolboxes by item instance, so code that edits a box from outside can go through its open screen. */
+    private static final Map<ItemStack, ToolboxContainer> OPEN = Collections.synchronizedMap(new WeakHashMap<>());
+
     private final Supplier<ItemStack> box;
     private final NonNullList<ItemStack> items;
 
     public ToolboxContainer(Supplier<ItemStack> box) {
         this.box = box;
         this.items = ToolboxData.load(box.get());
+        OPEN.put(box.get(), this);
+    }
+
+    /** The open container showing this toolbox item, or null if it isn't open. */
+    public static ToolboxContainer openFor(ItemStack box) {
+        return OPEN.get(box);
+    }
+
+    public void close() {
+        OPEN.values().remove(this);
     }
 
     @Override

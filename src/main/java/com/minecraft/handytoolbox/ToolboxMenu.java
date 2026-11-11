@@ -13,12 +13,13 @@ public class ToolboxMenu extends AbstractContainerMenu {
 
     private final Inventory inventory;
     private final int boxSlot;
+    private final ToolboxContainer container;
 
     public ToolboxMenu(int id, Inventory inventory, int boxSlot) {
         super(HandyToolbox.TOOLBOX_MENU.get(), id);
         this.inventory = inventory;
         this.boxSlot = boxSlot;
-        ToolboxContainer container = new ToolboxContainer(() -> inventory.getItem(boxSlot));
+        this.container = new ToolboxContainer(() -> inventory.getItem(boxSlot));
 
         for (int row = 0; row < ToolboxData.ROWS; row++) {
             for (int col = 0; col < 9; col++) {
@@ -45,6 +46,12 @@ public class ToolboxMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player player) {
         return ToolLending.isToolbox(inventory.getItem(boxSlot));
+    }
+
+    @Override
+    public void removed(Player player) {
+        super.removed(player);
+        container.close();
     }
 
     @Override

@@ -93,7 +93,9 @@ public final class ToolboxTransferHandler<C extends AbstractContainerMenu, R> im
             ToolStaging.undoSimulation(player, plans);
         }
         if (!allowsTransfer(withTools)) {
-            return result; // something other than a tool is missing: show the original error
+            // something other than a tool is missing: show what is still missing once the toolbox tools are counted,
+            // so tools in the box are not highlighted as missing
+            return withTools.getType() == IRecipeTransferError.Type.USER_FACING ? withTools : result;
         }
         if (!doTransfer) {
             return withTools;
