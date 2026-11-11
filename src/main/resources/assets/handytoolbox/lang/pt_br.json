@@ -1,0 +1,6 @@
+{
+  "item.handytoolbox.toolbox": "Caixa de Ferramentas",
+  "item.handytoolbox.toolbox.tooltip": "Guarda ferramentas de crafting. O [+] do JEI pega daqui as ferramentas que a receita precisa.",
+  "item.handytoolbox.toolbox.count": "%s / %s ferramentas",
+  "container.handytoolbox.toolbox": "Caixa de Ferramentas"
+}

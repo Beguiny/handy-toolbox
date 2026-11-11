@@ -1,0 +1,13 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "com.minecraft.handytoolbox.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [],
+  "client": [
+    "JeiRecipeTransferManagerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}

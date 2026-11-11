@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "#forge:tools", "required": false },
+    { "id": "#forge:tools/crafting_crowbars", "required": false },
+    { "id": "#forge:tools/crafting_files", "required": false },
+    { "id": "#forge:tools/crafting_hammers", "required": false },
+    { "id": "#forge:tools/crafting_knives", "required": false },
+    { "id": "#forge:tools/crafting_mallets", "required": false },
+    { "id": "#forge:tools/crafting_mortars", "required": false },
+    { "id": "#forge:tools/crafting_saws", "required": false },
+    { "id": "#forge:tools/crafting_screwdrivers", "required": false },
+    { "id": "#forge:tools/crafting_wire_cutters", "required": false },
+    { "id": "#forge:tools/crafting_wrenches", "required": false },
+    { "id": "#forge:tools/crowbars", "required": false },
+    { "id": "#forge:tools/files", "required": false },
+    { "id": "#forge:tools/hammers", "required": false },
+    { "id": "#forge:tools/mallets", "required": false },
+    { "id": "#forge:tools/mortars", "required": false },
+    { "id": "#forge:tools/saws", "required": false },
+    { "id": "#forge:tools/screwdrivers", "required": false },
+    { "id": "#forge:tools/wire_cutters", "required": false },
+    { "id": "#forge:tools/butchery_knives", "required": false },
+    { "id": "#forge:tools/wrench", "required": false },
+    { "id": "#forge:tools/wrenches", "required": false },
+    { "id": "#forge:tools/knives", "required": false },
+    { "id": "#forge:shears", "required": false }
+  ]
+}

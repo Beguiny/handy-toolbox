@@ -1,0 +1,6 @@
+{
+  "item.handytoolbox.toolbox": "Handy Toolbox",
+  "item.handytoolbox.toolbox.tooltip": "Holds crafting tools. JEI's [+] takes the tools a recipe needs from here.",
+  "item.handytoolbox.toolbox.count": "%s / %s tools",
+  "container.handytoolbox.toolbox": "Toolbox"
+}
