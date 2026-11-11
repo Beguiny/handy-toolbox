@@ -59,7 +59,4 @@ The jar is written to `build/libs/`. `./gradlew runClient` starts a dev client w
   lets the original handler do the transfer.
 - When a screen is closed, borrowed tools (marked in their NBT) go back into a toolbox.
 
-## License
-
-Copyright (c) 2026 Beguiny. All Rights Reserved. The source is published for reference and review.
 Modpacks are welcome to include the mod.
